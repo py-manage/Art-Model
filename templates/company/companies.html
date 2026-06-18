@@ -1,0 +1,420 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- templates/company/companies.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="modinatheme">
+        <meta name="description" content="Art Model">
+        <!-- ======== Page title ============ -->
+        <title>Art Model</title>
+        <!--<< Favicon >>-->
+        <link rel="shortcut icon" href="{% static 'assets/img/artmodel.png' %}">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <!--<< Font Awesome.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.css' %}">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <!--<< Splitting Animation.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/splitting.css' %}">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+        <!--<< Style.css >>-->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+
+
+  {% include "partais/nav.html" %}
+
+        <div class="ScrollSmoother-content">
+             <!--<< Breadcrumb Section Start >>-->
+            {% include "partais/slidebar.html" %}
+<section class="clients-section section-padding fix">
+
+    <div class="container">
+
+        <!-- TITLE -->
+
+        <div class="clients-header">
+
+            <span>
+                 Наши клиенты
+            </span>
+
+            <h2>
+                Организации, с которыми нам выпала честь работать
+            </h2>
+
+        </div>
+
+        <!-- GRID -->
+
+        <div class="clients-grid">
+
+            {% for company in companies %}
+
+                <div class="client-item">
+
+                    {% if company.website %}
+                        <a href="{{ company.website }}" target="_blank">
+                    {% endif %}
+
+                        <div class="client-logo">
+
+                            <img src="{{ company.logo.url }}"
+                                 alt="{{ company.name }}">
+
+                        </div>
+
+                    {% if company.website %}
+                        </a>
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+        <style>
+        /* =========================
+                    CLIENTS SECTION
+                    ========================= */
+
+                    .clients-section{
+
+                        padding: 120px 0;
+
+                        background: #f8f8f8;
+
+                        position: relative;
+
+                        overflow: hidden;
+                    }
+
+                    /* HEADER */
+
+                    .clients-header{
+
+                        text-align: center;
+
+                        margin-bottom: 80px;
+
+                        position: relative;
+                    }
+
+                    .clients-header span{
+
+                        color: #777;
+
+                        font-size: 14px;
+
+                        letter-spacing: 2px;
+
+                        text-transform: uppercase;
+
+                        display: inline-block;
+
+                        margin-bottom: 20px;
+                    }
+
+                    .clients-header h2{
+
+                        font-size: 52px;
+
+                        font-weight: 300;
+
+                        color: #111;
+
+                        line-height: 1.3;
+
+                        max-width: 900px;
+
+                        margin: auto;
+
+                        position: relative;
+
+                        z-index: 2;
+                    }
+
+                    /* BIG BACKGROUND TEXT */
+
+                    .clients-header::before{
+
+                        content: '';
+
+                        position: absolute;
+
+                        left: 50%;
+
+                        top: -90px;
+
+                        transform: translateX(-50%);
+
+                        font-size: 170px;
+
+                        font-weight: 700;
+
+                        color: rgba(0,0,0,0.03);
+
+                        letter-spacing: 15px;
+
+                        z-index: 1;
+
+                        white-space: nowrap;
+                    }
+
+                    /* GRID */
+
+                    .clients-grid{
+
+                        display: grid;
+
+                        grid-template-columns: repeat(7, 1fr);
+
+                        border-top: 1px solid rgba(0,0,0,0.08);
+
+                        border-left: 1px solid rgba(0,0,0,0.08);
+
+                        background: #fff;
+                    }
+
+                    /* ITEM */
+
+                    .client-item{
+
+                        height: 150px;
+
+                        border-right: 1px solid rgba(0,0,0,0.08);
+
+                        border-bottom: 1px solid rgba(0,0,0,0.08);
+
+                        display: flex;
+
+                        align-items: center;
+
+                        justify-content: center;
+
+                        transition: all 0.35s ease;
+
+                        position: relative;
+
+                        overflow: hidden;
+
+                        background: #fff;
+                    }
+
+                    .client-item::before{
+
+                        content: '';
+
+                        position: absolute;
+
+                        inset: 0;
+
+                        background: linear-gradient(
+                            135deg,
+                            rgba(164,147,105,0.06),
+                            rgba(164,147,105,0.01)
+                        );
+
+                        opacity: 0;
+
+                        transition: 0.4s;
+                    }
+
+                    .client-item:hover::before{
+
+                        opacity: 1;
+                    }
+
+                    .client-item:hover{
+
+                        transform: translateY(-4px);
+                    }
+
+                    /* LOGO */
+
+                    .client-logo{
+
+                        width: 100%;
+
+                        height: 100%;
+
+                        display: flex;
+
+                        align-items: center;
+
+                        justify-content: center;
+
+                        padding: 25px;
+
+                        position: relative;
+
+                        z-index: 2;
+                    }
+
+                    .client-logo img{
+
+                        max-width: 140px;
+
+                        max-height: 55px;
+
+                        width: auto;
+
+                        height: auto;
+
+                        object-fit: contain;
+
+                        filter: grayscale(100%);
+
+                        opacity: 0.65;
+
+                        transition: all 0.4s ease;
+                    }
+
+                    .client-item:hover img{
+
+                        filter: grayscale(0%);
+
+                        opacity: 1;
+
+                        transform: scale(1.05);
+                    }
+
+                    /* RESPONSIVE */
+
+                    @media (max-width: 1400px){
+
+                        .clients-grid{
+
+                            grid-template-columns: repeat(6, 1fr);
+                        }
+                    }
+
+                    @media (max-width: 1200px){
+
+                        .clients-grid{
+
+                            grid-template-columns: repeat(5, 1fr);
+                        }
+
+                        .clients-header::before{
+
+                            font-size: 120px;
+                        }
+                    }
+
+                    @media (max-width: 991px){
+
+                        .clients-grid{
+
+                            grid-template-columns: repeat(4, 1fr);
+                        }
+
+                        .clients-header h2{
+
+                            font-size: 38px;
+                        }
+                    }
+
+                    @media (max-width: 767px){
+
+                        .clients-grid{
+
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+
+                        .client-item{
+
+                            height: 120px;
+                        }
+
+                        .client-logo img{
+
+                            max-width: 100px;
+                        }
+
+                        .clients-header::before{
+
+                            font-size: 80px;
+                        }
+                    }
+
+                    @media (max-width: 500px){
+
+                        .clients-grid{
+
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+
+                        .clients-header h2{
+
+                            font-size: 28px;
+                        }
+
+                        .clients-header::before{
+
+                            font-size: 55px;
+                        }
+                    }
+        </style>
+        <!-- Footer Section Start -->
+{% include "partais/footer.html" %}
+        </div>
+
+
+        <!--<< All JS Plugins >>-->
+        <script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script>
+        <!--<< Viewport Js >>-->
+        <script src="{% static 'assets/js/viewport.jquery.js' %}"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+        <!--<< Nice Select Js >>-->
+        <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="{% static 'assets/js/jquery.waypoints.js' %}"></script>
+        <!--<< Counterup Js >>-->
+        <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+        <!--<< Splitting Js >>-->
+        <script src="{% static 'assets/js/splitting.js' %}"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="{% static 'assets/js/wow.min.js' %}"></script>
+        <!--<< Splitting Animation Js >>-->
+        <script src="{% static 'assets/js/splitting-animation.js' %}"></script>
+        <!-- Gsap -->
+        <script src="{% static 'assets/js/gsap/gsap.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollTrigger.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollSmoother.min.js' %}"></script>
+        <!--<< Main.js >>-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>
+{% endblock content %}
+

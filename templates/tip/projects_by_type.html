@@ -1,0 +1,783 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="modinatheme">
+        <meta name="description" content="Art Model">
+        <!-- ======== Page title ============ -->
+        <title>Art Model</title>
+        <!--<< Favicon >>-->
+        <link rel="shortcut icon" href="{% static 'assets/img/artmodel.png' %}">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <!--<< Font Awesome.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.css' %}">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <!--<< Splitting Animation.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/splitting.css' %}">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+        <!--<< Style.css >>-->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+
+        {% include "partais/nav.html" %}
+
+
+<div class="ScrollSmoother-content">
+
+    <!-- Breadcrumb -->
+    {% include "partais/slidebar.html" %}
+    <section class="type-details-section">
+
+        <div class="container">
+
+            <!-- TYPE INFO -->
+
+            <div class="type-details-wrapper text-center">
+
+                <center>                
+                    <h2 class="type-title">
+
+                    {{ project_type.title }}
+
+                </h2>
+
+                <div class="type-description">
+
+                 {{ project_type.description|safe }}
+
+                </div>
+            </center>
+
+            </div>
+
+            <!-- OTHER TYPES -->
+
+        <div class="other-types-wrap">
+
+            <h4>Другие типы макетов</h4>
+
+            <div class="other-types-list">
+
+                {% for type in other_types %}
+
+                    <a href="{% url 'projects_by_type' type.slug %}"
+                    class="other-type-btn">
+
+                        {{ type.title }}
+
+                    </a>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </section>
+
+
+
+<!-- STATS -->
+
+<section class="project-filter-section">
+
+    <div class="container">
+
+        <div class="row mb-5">
+
+            <div class="col-lg-4 text-center">
+
+                <div class="counter-items">
+
+                    <h2>
+                        {{ total_projects }}
+                    </h2>
+
+                    <p>
+                        МАКЕТОВ
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <div class="counter-items">
+
+                    <h2>
+                        {{ total_this_year }}
+                    </h2>
+
+                    <p>
+                        ПРОЕКТОВ ЗА ГОД
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <div class="counter-items">
+
+                    <h2>
+                        {{ total_views }}
+                    </h2>
+
+                    <p>
+                        ПРОСМОТРОВ
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FILTER -->
+
+        <div class="studio-filter-wrap">
+
+            <!-- YEAR -->
+
+            <div class="filter-group">
+
+                <button class="filter-title"
+                        onclick="toggleFilter('yearFilter')">
+
+                    ГОД
+
+                </button>
+
+                <div class="filter-items active"
+                     id="yearFilter">
+
+                    <a href="?">
+                        Все
+                    </a>
+
+                    {% for year in years %}
+
+                    <a href="?year={{ year }}{% if current_scale %}&scale={{ current_scale }}{% endif %}"
+                       class="{% if current_year == year|stringformat:'s' %}active{% endif %}">
+
+                        {{ year }}
+
+                    </a>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <!-- SCALE -->
+
+            <div class="filter-group">
+
+                <button class="filter-title"
+                        onclick="toggleFilter('scaleFilter')">
+
+                    МАСШТАБ
+
+                </button>
+
+                <div class="filter-items active"
+                     id="scaleFilter">
+
+                    {% for scale in scales %}
+
+                    <a href="?scale={{ scale.id }}{% if current_year %}&year={{ current_year }}{% endif %}"
+                       class="{% if current_scale == scale.id|stringformat:'s' %}active{% endif %}">
+
+                        {{ scale.value }}
+
+                    </a>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PROJECTS -->
+
+<section class="portfolio-section fix pb-120">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            {% for project in page_obj %}
+
+            <div class="col-xl-3 col-lg-4 col-md-6">
+
+                <div class="portfolio-items small-card">
+
+                    <div class="portfolio-image project-image">
+
+                        <img src="{{ project.main_image.url }}"
+                             alt="{{ project.title }}">
+
+                        <div class="portfolio-content">
+
+                            <a href="{% url 'project_detail' project.slug %}"
+                               class="icon">
+
+                                <i class="fas fa-long-arrow-right"></i>
+
+                            </a>
+
+                            <h3>
+
+                                <a href="{% url 'project_detail' project.slug %}">
+
+                                    {{ project.title }}
+
+                                </a>
+
+                            </h3>
+
+                            <p>
+
+                                {{ project.scale.value }}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PAGINATION -->
+
+<div class="page-nav-wrap mt-5 text-center">
+
+    <ul>
+
+        {% if page_obj.has_previous %}
+
+        <li>
+
+            <a class="page-numbers"
+               href="?page={{ page_obj.previous_page_number }}{% if current_year %}&year={{ current_year }}{% endif %}{% if current_scale %}&scale={{ current_scale }}{% endif %}">
+
+                <i class="fal fa-long-arrow-left"></i>
+
+            </a>
+
+        </li>
+
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+
+        <li>
+
+            <a class="page-numbers {% if page_obj.number == num %}active{% endif %}"
+               href="?page={{ num }}{% if current_year %}&year={{ current_year }}{% endif %}{% if current_scale %}&scale={{ current_scale }}{% endif %}">
+
+                {{ num|stringformat:"02d" }}
+
+            </a>
+
+        </li>
+
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+
+        <li>
+
+            <a class="page-numbers"
+               href="?page={{ page_obj.next_page_number }}{% if current_year %}&year={{ current_year }}{% endif %}{% if current_scale %}&scale={{ current_scale }}{% endif %}">
+
+                <i class="fal fa-long-arrow-right"></i>
+
+            </a>
+
+        </li>
+
+        {% endif %}
+
+    </ul>
+
+</div>
+    <style>
+                    .type-details-section {
+                    padding: 120px 0 80px;
+                    background: #f8f8f8;
+                    }
+
+                    .type-details-wrapper {
+                    max-width: 1100px;
+                    margin: auto;
+                    }
+
+                    .type-title {
+                    font-size: 52px;
+                    font-weight: 700;
+                    color: #111;
+                    margin-bottom: 30px;
+                    letter-spacing: -1.5px;
+                    line-height: 1.1;
+                    }
+
+                    .type-description {
+                    color: #555;
+                    line-height: 1.85;
+                    font-size: 17px;
+                    max-width: 850px;
+                    }
+
+                    /* ====================== OTHER TYPES (Buttonlar) ====================== */
+                    .other-types-wrap {
+                    margin-top: 90px;
+                    text-align: center;
+                    }
+
+                    .other-types-wrap h4 {
+                    font-size: 26px;
+                    margin-bottom: 35px;
+                    color: #111;
+                    font-weight: 600;
+                    }
+
+                    .other-types-list {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 14px;
+                    }
+
+                    .other-type-btn {
+                    padding: 14px 32px;
+                    border: 1px solid #ddd;
+                    color: #444;
+                    background: #fff;
+                    border-radius: 8px;
+                    font-size: 15.5px;
+                    font-weight: 500;
+                    transition: all 0.35s ease;
+                    text-decoration: none;
+                    }
+
+                    .other-type-btn:hover {
+                    background: #a49369;
+                    border-color: #a49369;
+                    color: #fff;
+                    transform: translateY(-3px);
+                    }
+
+                    /* ====================== STATS ====================== */
+                    .project-filter-section {
+                    padding: 100px 0 80px;
+                    background: #fff;
+                    }
+
+                    .counter-items h2 {
+                    font-size: 68px;
+                    font-weight: 700;
+                    color: #111;
+                    line-height: 1;
+                    margin-bottom: 8px;
+                    }
+
+                    .counter-items p {
+                    color: #777;
+                    font-size: 14.5px;
+                    letter-spacing: 0.5px;
+                    margin: 0;
+                    }
+
+                    /* ====================== FILTERS ====================== */
+                    .studio-filter-wrap {
+                    display: flex;
+                    justify-content: center;
+                    gap: 70px;
+                    flex-wrap: wrap;
+                    margin-top: 60px;
+                    }
+
+                    .filter-group {
+                    text-align: center;
+                    }
+
+                    .filter-title {
+                    background: none;
+                    border: none;
+                    font-size: 21px;
+                    font-weight: 600;
+                    color: #111;
+                    position: relative;
+                    padding-bottom: 8px;
+                    }
+
+                    .filter-title::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 0;
+                    height: 2px;
+                    background: #a49369;
+                    transition: 0.4s;
+                    }
+
+                    .filter-group:hover .filter-title::after {
+                    width: 100%;
+                    }
+
+                    .filter-items {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 18px;
+                    margin-top: 22px;
+                    }
+
+                    .filter-items a {
+                    color: #666;
+                    font-size: 16px;
+                    transition: 0.3s;
+                    text-decoration: none;
+                    }
+
+                    .filter-items a:hover,
+                    .filter-items a.active {
+                    color: #a49369;
+                    }
+
+                    /* ====================== PROJECT CARDS ====================== */
+                    .project-card {
+                    background: #fff;
+                    border-radius: 16px;
+                    overflow: hidden;
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+                    transition: all 0.4s ease;
+                    height: 100%;
+                    }
+
+                    .project-card:hover {
+                    transform: translateY(-12px);
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+                    }
+
+                    .project-image {
+                    height: 280px;
+                    overflow: hidden;
+                    }
+
+                    .project-image img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.7s ease;
+                    }
+
+                    .project-card:hover .project-image img {
+                    transform: scale(1.08);
+                    }
+
+                    .project-info {
+                    padding: 28px;
+                    }
+
+                    .project-info h3 {
+                    font-size: 22px;
+                    margin-bottom: 12px;
+                    line-height: 1.3;
+                    }
+
+                    .project-info h3 a {
+                    color: #111;
+                    text-decoration: none;
+                    }
+
+                    .project-info h3 a:hover {
+                    color: #a49369;
+                    }
+
+                    .project-info .meta {
+                    color: #888;
+                    font-size: 14.5px;
+                    margin-bottom: 14px;
+                    }
+
+                    /* ====================== PAGINATION ====================== */
+                    .page-nav-wrap {
+                    margin-top: 80px;
+                    text-align: center;
+                    }
+
+                    .page-numbers {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 50px;
+                    height: 50px;
+                    border: 1px solid #ddd;
+                    border-radius: 50%;
+                    color: #555;
+                    margin: 0 6px;
+                    transition: all 0.3s;
+                    font-weight: 500;
+                    }
+
+                    .page-numbers:hover,
+                    .page-numbers.active {
+                    background: #a49369;
+                    border-color: #a49369;
+                    color: #000000;
+                    }
+
+                    /* ====================== MOBILE RESPONSIVE ====================== */
+                    @media (max-width: 991px) {
+                    .type-title {
+                        font-size: 42px;
+                    }
+                    .counter-items h2 {
+                        font-size: 52px;
+                    }
+                    .studio-filter-wrap {
+                        gap: 40px;
+                    }
+                    .project-image {
+                        height: 240px;
+                    }
+                    }
+
+                    @media (max-width: 768px) {
+                    .studio-filter-wrap {
+                        gap: 25px;
+                    }
+                    .other-types-list {
+                        gap: 10px;
+                    }
+                    }
+
+    </style>
+<br>
+<br>
+<br>
+
+
+{% include "partais/footer.html" %}
+</div>
+
+  
+         <script>
+
+            function toggleFilter(id){
+
+                document.querySelectorAll('.filter-items')
+                .forEach(item => {
+
+                    if(item.id === id){
+
+                        item.classList.toggle('active');
+
+                    }else{
+
+                        item.classList.remove('active');
+                    }
+                });
+            }
+
+        </script>
+        <style>
+            /* Mustahkam CSS Grid strukturasi */
+            .custom-bento-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 3 ta teng ustun */
+                gap: 24px; /* Bloklar orasidagi masofa */
+                width: 100%;
+                padding: 20px 0;
+            }
+
+            /* Har bir blokning umumiy ko'rinishi */
+            .bento-item {
+                position: relative;
+                min-height: 280px; /* Kichik bloklar balandligi */
+                overflow: hidden;
+                border-radius: 4px;
+            }
+
+            /* 1- va 6- elementlarni rasmda ko'rsatilganidek katta (uzun) qilish */
+            .bento-item.bento-large {
+                grid-row: span 2; /* 2 qator joy egallaydi */
+                min-height: 584px; /* (280px * 2) + 24px gap */
+            }
+
+            /* Rasm va uning fon sozlamalari */
+            .bento-card {
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                transition: transform 0.5s ease;
+                display: flex;
+                align-items: flex-end;
+            }
+
+            /* Hover bo'lganda rasmning biroz kattalashishi */
+            .bento-item:hover .bento-card {
+                transform: scale(1.04);
+            }
+
+            /* Qorong'u gradient qatlam (Matnlar aniq ko'rinishi uchun) */
+            .bento-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+                display: flex;
+                align-items: flex-end;
+                padding: 30px;
+            }
+
+            /* Matnlar va havolalar uslubi */
+            .bento-content {
+                width: 100%;
+            }
+
+            .bento-content h3 {
+                margin: 10px 0 5px 0;
+                font-size: 22px;
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+            }
+
+            .bento-content h3 a {
+                color: #ffffff !important;
+                text-decoration: none;
+            }
+
+            .bento-content p {
+                color: #cccccc !important;
+                font-size: 14px;
+                margin: 0;
+                line-height: 1.4;
+            }
+
+            /* O'ngga ko'rsatgich tugmasi (Icon) */
+            .bento-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 45px;
+                height: 45px;
+                background-color: rgba(255, 255, 255, 0.2);
+                color: #fff !important;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+            .bento-item:hover .bento-icon {
+                background-color: #c9b37e; /* Sizning loyihadagi oltin rang */
+            }
+
+            /* Mobil qurilmalar uchun moslashuvchanlik (Responsive) */
+            @media (max-width: 991px) {
+                .custom-bento-grid {
+                    grid-template-columns: repeat(2, 1fr); /* Planshetda 2 talik qator */
+                }
+                .bento-item.bento-large {
+                    grid-row: span 1;
+                    min-height: 300px;
+                }
+            }
+
+            @media (max-width: 575px) {
+                .custom-bento-grid {
+                    grid-template-columns: 1fr; /* Mobil telefonda 1 talik qator */
+                }
+                .bento-item, .bento-item.bento-large {
+                    min-height: 260px;
+                }
+            }
+        </style>
+        <!--<< All JS Plugins >>-->
+        <script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script>
+        <!--<< Viewport Js >>-->
+        <script src="{% static 'assets/js/viewport.jquery.js' %}"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+        <!--<< Nice Select Js >>-->
+        <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="{% static 'assets/js/jquery.waypoints.js' %}"></script>
+        <!--<< Counterup Js >>-->
+        <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+        <!--<< Splitting Js >>-->
+        <script src="{% static 'assets/js/splitting.js' %}"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="{% static 'assets/js/wow.min.js' %}"></script>
+        <!--<< Splitting Animation Js >>-->
+        <script src="{% static 'assets/js/splitting-animation.js' %}"></script>
+        <!-- Gsap -->
+        <script src="{% static 'assets/js/gsap/gsap.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollTrigger.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollSmoother.min.js' %}"></script>
+        <!--<< Main.js >>-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>
+{% endblock %}

@@ -1,0 +1,494 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="modinatheme">
+        <meta name="description" content="Art Model">
+        <!-- ======== Page title ============ -->
+        <title>Art Model</title>
+        <!--<< Favicon >>-->
+        <link rel="shortcut icon" href="{% static 'assets/img/artmodel.png' %}">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <!--<< Font Awesome.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.css' %}">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <!--<< Splitting Animation.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/splitting.css' %}">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+        <!--<< Style.css >>-->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+
+
+
+    {% include "partais/nav.html" %}
+
+
+        <div class="ScrollSmoother-content">
+            <!--<< Breadcrumb Section Start >>-->
+        {% include "partais/slidebar.html" %}
+
+            <!-- Service Section Start -->
+            <section id="service"
+                    class="service-section fix section-padding section-bg bg-cover"
+                    style="background-image: url('{% static 'assets/img/service/bg-shape.jpg' %}');">
+
+                <div class="bg-shape">
+                    <img src="{% static 'assets/img/service/bg-shape.jpg' %}" alt="">
+                </div>
+
+                <div class="container">
+
+                    <div class="service-wrapper">
+
+                        <div class="row g-4">
+
+                            <div class="col-xl-9 col-lg-12">
+
+                                <div class="service-left">
+
+                                    <div class="section-title">
+
+                                        <h6 class="wow fadeInUp">
+                                            Our Services
+                                        </h6>
+
+                                        <h2 class="splt-txt wow"
+                                            data-splitting>
+
+                                            Creating models that <br>
+                                            inspire people
+
+                                        </h2>
+
+                                    </div>
+
+                                    <div class="row g-4">
+
+                                        {% for service in services %}
+
+                                        <div class="col-lg-4 col-md-6 wow fadeInUp"
+                                            data-wow-delay=".{{ forloop.counter }}s">
+
+                                            <div class="service-items {% if forloop.counter == 1 or forloop.counter == 3 %}mt-4{% endif %}">
+
+                                                <div class="icon">
+
+                                                    <i class="{{ service.icon }}"></i>
+
+                                                </div>
+
+                                                <div class="content">
+
+                                                    <h3 class="splt-txt wow"
+                                                        data-splitting>
+
+                                                        <a href="{% url 'service_details' service.slug %}">
+
+                                                            {{ service.title }}
+
+                                                        </a>
+
+                                                    </h3>
+
+                                                    <p>
+
+                                                        {{ service.short_description|truncatewords:10 }}
+
+                                                    </p>
+
+                                                    <a href="{% url 'service_details' service.slug %}"
+                                                    class="link-btn">
+
+                                                        Read More
+
+                                                        <i class="fas fa-long-arrow-right"></i>
+
+                                                    </a>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        {% endfor %}
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-xl-3 col-lg-6 wow fadeInUp"
+                                data-wow-delay=".9s">
+
+                                {% if services.first %}
+
+                                <div class="service-image bg-cover"
+                                    style="background-image:url('{{ services.first.image.url }}');">
+
+                                </div>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- Service Section Start -->
+            {% comment %} <section class="service-section fix section-padding">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="service-items style-2">
+                                <div class="icon">
+                                    <i class="flaticon-bed-1"></i>
+                                </div>
+                                <div class="content">
+                                    <h3 class="splt-txt wow" data-splitting>
+                                        <a href="">Architecture Plus</a>
+                                    </h3>
+                                    <p>
+                                        This category focuses on the design and man
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Read More <i class="fas fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                            <div class="service-items style-2">
+                                <div class="icon">
+                                    <i class="flaticon-floor-plan-1"></i>
+                                </div>
+                                <div class="content">
+                                    <h3 class="splt-txt wow" data-splitting>
+                                        <a href="">Urban Oasis</a>
+                                    </h3>
+                                    <p>
+                                        This category focuses on the design and man
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Read More <i class="fas fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                            <div class="service-items style-2">
+                                <div class="icon">
+                                    <i class="flaticon-balcony"></i>
+                                </div>
+                                <div class="content">
+                                    <h3 class="splt-txt wow" data-splitting>
+                                        <a href="">Blueprint Builders</a>
+                                    </h3>
+                                    <p>
+                                        This category focuses on the design and man
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Read More <i class="fas fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".9s">
+                            <div class="service-items style-2">
+                                <div class="icon">
+                                    <i class="flaticon-room"></i>
+                                </div>
+                                <div class="content">
+                                    <h3 class="splt-txt wow" data-splitting>
+                                        <a href="">Room Layout</a>
+                                    </h3>
+                                    <p>
+                                        This category focuses on the design and man
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Read More <i class="fas fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="service-items style-2">
+                                <div class="icon">
+                                    <i class="flaticon-skyline"></i>
+                                </div>
+                                <div class="content">
+                                    <h3 class="splt-txt wow" data-splitting>
+                                        <a href="">Textile Design</a>
+                                    </h3>
+                                    <p>
+                                        This category focuses on the design and man
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Read More <i class="fas fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                            <div class="service-items style-2">
+                                <div class="icon">
+                                    <i class="flaticon-plan"></i>
+                                </div>
+                                <div class="content">
+                                    <h3 class="splt-txt wow" data-splitting>
+                                        <a href="">Lighting Fixtures</a>
+                                    </h3>
+                                    <p>
+                                        This category focuses on the design and man
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Read More <i class="fas fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                            <div class="service-items style-2">
+                                <div class="icon">
+                                    <i class="flaticon-floor-plan"></i>
+                                </div>
+                                <div class="content">
+                                    <h3 class="splt-txt wow" data-splitting>
+                                        <a href="">Wallpaper Install</a>
+                                    </h3>
+                                    <p>
+                                        This category focuses on the design and man
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Read More <i class="fas fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay=".9s">
+                            <div class="service-items style-2">
+                                <div class="icon">
+                                    <i class="flaticon-patio"></i>
+                                </div>
+                                <div class="content">
+                                    <h3 class="splt-txt wow" data-splitting>
+                                        <a href="">Custom Shelving</a>
+                                    </h3>
+                                    <p>
+                                        This category focuses on the design and man
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Read More <i class="fas fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> {% endcomment %}
+    
+
+            
+            <style>
+                .project-review-wrapper{
+                    max-height: 700px;
+                    overflow-y: auto;
+                    padding-right: 10px;
+                }
+
+                /* SCROLLBAR */
+
+                .project-review-wrapper::-webkit-scrollbar{
+                    width: 6px;
+                }
+
+                .project-review-wrapper::-webkit-scrollbar-track{
+                    background: #f1f1f1;
+                    border-radius: 20px;
+                }
+
+                .project-review-wrapper::-webkit-scrollbar-thumb{
+                    background: #c9b37e;
+                    border-radius: 20px;
+                }
+        </style>
+            <!-- Contact Section Start -->
+            {% comment %} <section class="contact-section fix section-bg section-padding">
+
+                <div class="container">
+
+                    <div class="contact-wrapper-2">
+                        
+                        <div class="section-title">
+                            <h2 class="splt-txt wow" data-splitting>
+                                Leave a Comment
+                            </h2>
+                        </div>
+
+                        <form method="POST"
+                            class="contact-form-items mt-4 mt-md-0">
+
+                            {% csrf_token %}
+
+                            <div class="row g-4">
+
+                                <div class="col-lg-6">
+
+                                    <div class="form-clt">
+
+                                        <input type="text"
+                                            name="name"
+                                            placeholder="Name"
+                                            required>
+
+                                        <div class="icon">
+                                            <i class="far fa-user"></i>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6">
+
+                                    <div class="form-clt">
+
+                                        <input type="email"
+                                            name="email"
+                                            placeholder="Email Address"
+                                            required>
+
+                                        <div class="icon">
+                                            <i class="far fa-envelope"></i>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-12">
+
+                                    <div class="form-clt">
+
+                                        <input type="text"
+                                            name="phone"
+                                            placeholder="Phone Number">
+
+                                        <div class="icon">
+                                            <i class="fas fa-phone-alt"></i>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-12">
+
+                                    <div class="form-clt">
+
+                                        <textarea
+                                            name="message"
+                                            placeholder="Message here..."
+                                            required></textarea>
+
+                                        <div class="icon">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-12">
+
+                                    <button type="submit"
+                                            class="theme-btn padding-style">
+
+                                        Send Review
+
+                                        <i class="fas fa-long-arrow-right"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </section> {% endcomment %}
+    
+            <!-- Cta Section Start -->
+
+    
+            <!-- Footer Section Start -->
+                    {% include "partais/footer.html" %}
+
+        </div>
+
+   
+
+        <!--<< All JS Plugins >>-->
+        <script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script>
+        <!--<< Viewport Js >>-->
+        <script src="{% static 'assets/js/viewport.jquery.js' %}"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+        <!--<< Nice Select Js >>-->
+        <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="{% static 'assets/js/jquery.waypoints.js' %}"></script>
+        <!--<< Counterup Js >>-->
+        <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+        <!--<< Splitting Js >>-->
+        <script src="{% static 'assets/js/splitting.js' %}"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="{% static 'assets/js/wow.min.js' %}"></script>
+        <!--<< Splitting Animation Js >>-->
+        <script src="{% static 'assets/js/splitting-animation.js' %}"></script>
+        <!-- Gsap -->
+        <script src="{% static 'assets/js/gsap/gsap.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollTrigger.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollSmoother.min.js' %}"></script>
+        <!--<< Main.js >>-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>
+{% endblock content %}
+

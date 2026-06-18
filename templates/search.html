@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% load static %}
+<h1>{{ query }}</h1>
+{% include 'partais/nav.html' %}
+
+
+{% for project in projects %}
+
+<a href="{% url 'project_detail' project.slug %}">
+
+    {{ project.title }}
+
+</a>
+
+{% endfor %}
+
+
+
+{% endblock content %}

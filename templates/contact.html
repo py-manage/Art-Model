@@ -1,0 +1,341 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="modinatheme">
+        <meta name="description" content="Art Model">
+        <!-- ======== Page title ============ -->
+        <title>Art Model</title>
+        <!--<< Favicon >>-->
+        <link rel="shortcut icon" href="{% static 'assets/img/artmodel.png' %}">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <!--<< Font Awesome.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.css' %}">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <!--<< Splitting Animation.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/splitting.css' %}">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+        <!--<< Style.css >>-->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+
+        {% include "partais/nav.html" %}
+
+
+
+
+        <div class="ScrollSmoother-content">
+             <!--<< Breadcrumb Section Start >>-->
+            {% include "partais/slidebar.html" %}
+
+            
+            <!-- Contact Info Section Start -->
+            <section class="contact-Info-section section-padding pb-80 fix">
+                <div class="container">
+                    <div class="contact-info-wrapper">
+                        <div class="row g-0">
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="google-map">
+                                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d774.5772526784249!2d69.17368715200486!3d41.333270801390675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8f2d6f50db63%3A0x2fc78bd1032f4b42!2sMakdora!5e0!3m2!1sru!2s!4v1780843374561!5m2!1sru!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <div class="contact-info-content">
+                                    <h2 class="splt-txt wow" data-splitting>Contact Info</h2>
+                                    <p class="wow fadeInUp" data-wow-delay=".5s">Cloud computing is a model for delivering on-demand computing resources over the internet. It can benefit your </p>
+                                    <div class="contact-info-area">
+                                        <div class="row g-4">
+                                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".2s">
+                                                <div class="contact-info-items">
+                                                    <div class="icon">
+                                                        <i class="fas fa-phone-alt"></i>
+                                                    </div>
+                                                    <div class="content">
+                                                        <h3 class="splt-txt wow" data-splitting>Phone</h3>
+                                                        <h6><a href="tel:+998333334010" class="me-3">+998(33)333-40-10</a>
+                                                            <br><a href="tel:+998974004075">+998(97)400-40-75</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".4s">
+                                                <div class="contact-info-items">
+                                                    <div class="icon">
+                                                        <i class="fas fa-envelope"></i>
+                                                    </div>
+                                                    <div class="content">
+                                                        <h3 class="splt-txt wow" data-splitting>Email</h3>
+                                                        <h6><a href="mailto:artmodel.admin@gmail.com" class="link">artmodel.admin@gmail.com</a></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".6s">
+                                                <div class="contact-info-items">
+                                                    <div class="icon">
+                                                        <i class="fas fa-map-marker-alt"></i>
+                                                    </div>
+                                                    <div class="content">
+                                                        <h3 class="splt-txt wow" data-splitting>Location</h3>
+                                                        <h6>Jar-Ariq, 4-tor str 39, 100068, Тоshkent, Toshkent, Узбекистан</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 wow fadeInUp" data-wow-delay=".8s">
+                                                <div class="contact-info-items">
+                                                    <div class="icon">
+                                                        <i class="fas fa-link"></i>
+                                                    </div>
+                                                    <div class="content">
+                                                        <h3 class="splt-txt wow" data-splitting>Website</h3>
+                                                        <h6>www.example.com</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           
+            <!-- Contact Section Start -->
+<section class="contact-section-4 fix section-padding pt-100 pb-100">
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <!-- Chap taraf - Forma -->
+            <div class="col-lg-7">
+                <div class="contact-content">
+                    <div class="section-title mb-5">
+                        <h6 class="wow fadeInUp">Contact Us</h6>
+                        <h2 class="splt-txt wow" data-splitting>Get In Touch</h2>
+                    </div>
+                    
+                    <form  id="contactForm" method="POST"  class="contact-form-items">
+                        <div class="row g-4">
+                            <div class="col-lg-6 wow fadeInUp">
+                                <div class="form-clt">
+                                    <input type="text" name="name" id="name" placeholder="Your Name" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 wow fadeInUp">
+                                <div class="form-clt">
+                                    <input type="email" name="email" id="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 wow fadeInUp">
+                                <div class="form-clt">
+                                    <input type="tel" name="phone" id="number" placeholder="Phone Number">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 wow fadeInUp">
+                                <div class="form-clt">
+                                    <input type="text" name="comp" id="subject" placeholder="Subject">
+                                </div>
+                            </div>
+                            <div class="col-12 wow fadeInUp">
+                                <div class="form-clt">
+                                    <textarea name="message" id="message" rows="6" placeholder="Message here.."></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12 wow fadeInUp">
+                                <button type="submit" class="theme-btn padding-style">
+                                    Submit Now <i class="fas fa-long-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+              
+                </div>
+            </div>
+
+            <!-- O'ng taraf - Rasm / Informatsiya -->
+            <div class="col-lg-5">
+                <div class="contact-image-box">
+                    <img src="{% static 'assets/arch/map.png' %}" 
+                         alt="Get In Touch" class="img-fluid rounded-4 shadow">
+                    
+             
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+                <style>
+                    .contact-section-4 {
+                            background: #f8f9fa;
+                        }
+
+                        .contact-content {
+                            background: #fff;
+                            padding: 50px 45px;
+                            border-radius: 16px;
+                            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+                        }
+
+                        .form-clt input,
+                        .form-clt textarea {
+                            width: 100%;
+                            padding: 16px 20px;
+                            border: 1px solid #ddd;
+                            border-radius: 8px;
+                            font-size: 16px;
+                        }
+
+                        .form-clt input:focus,
+                        .form-clt textarea:focus {
+                            border-color: #a49369;
+                            outline: none;
+                        }
+
+                        .contact-image-box {
+                            position: relative;
+                            border-radius: 16px;
+                            overflow: hidden;
+                        }
+
+                        .contact-image-box img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+
+                        .contact-info-overlay {
+                            position: absolute;
+                            bottom: 30px;
+                            left: 30px;
+                            background: rgba(0,0,0,0.75);
+                            color: white;
+                            padding: 25px;
+                            border-radius: 12px;
+                        }
+                </style>
+            <!-- Cta Section Start -->
+            {% comment %} <section class="cta-banner-section-2">
+                <div class="container">
+                    <div class="cta-banner-wrapper-2">
+                        <div class="cta-image wow fadeInUp" data-wow-delay=".3s">
+                            <img src="{% static 'assets/img/cta-img.png' %}" alt="cta-img">
+                            <div class="circle-shape">
+                                <img src="{% static 'assets/img/circle-border.png' %}" alt="shape-img">
+                            </div>
+                        </div>
+                        <div class="section-title-area">
+                            <div class="section-title mb-0">
+                                <h2 class="text-white splt-txt wow" data-splitting>
+                                    Crafting spaces that <br> the reflect style
+                                </h2>
+                            </div>
+                            <a href="" class="theme-btn bg-white padding-style wow fadeInUp" data-wow-delay=".7s">
+                                Get In Touch
+                                <i class="fas fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section> {% endcomment %}
+    
+            <!-- Footer Section Start -->
+        {% include "partais/footer.html" %}
+
+        </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+    (function () {
+        emailjs.init({
+            publicKey: "BgE40aU3wGlmZkU9x",
+        });
+    })();
+
+    document
+    .getElementById("contactForm")
+    .addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        emailjs.sendForm(
+            "service_iz2jaf2",
+            "template_5kmf8nh",
+            this
+        )
+        .then(() => {
+
+            alert("Message sent successfully!");
+
+            this.reset();
+
+        })
+        .catch((error) => {
+
+            console.error(error);
+
+            alert("Failed to send message!");
+
+        });
+    });
+</script>
+
+    <!--<< All JS Plugins >>-->
+    <script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script>
+    <!--<< Viewport Js >>-->
+    <script src="{% static 'assets/js/viewport.jquery.js' %}"></script>
+    <!--<< Bootstrap Js >>-->
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <!--<< Nice Select Js >>-->
+    <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+    <!--<< Waypoints Js >>-->
+    <script src="{% static 'assets/js/jquery.waypoints.js' %}"></script>
+    <!--<< Counterup Js >>-->
+    <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+    <!--<< Swiper Slider Js >>-->
+    <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+    <!--<< MeanMenu Js >>-->
+    <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+    <!--<< Splitting Js >>-->
+    <script src="{% static 'assets/js/splitting.js' %}"></script>
+    <!--<< Magnific Popup Js >>-->
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <!--<< Wow Animation Js >>-->
+    <script src="{% static 'assets/js/wow.min.js' %}"></script>
+    <!--<< Splitting Animation Js >>-->
+    <script src="{% static 'assets/js/splitting-animation.js' %}"></script>
+    <!-- Gsap -->
+    <script src="{% static 'assets/js/gsap/gsap.min.js' %}"></script>
+    <script src="{% static 'assets/js/gsap/ScrollTrigger.min.js' %}"></script>
+    <script src="{% static 'assets/js/gsap/ScrollSmoother.min.js' %}"></script>
+    <!--<< Ajax Mail Js >>-->
+    <script src="{% static 'assets/js/ajax-mail.js' %}"></script>
+    <!--<< Main.js >>-->
+     <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>
+
+
+
+{% endblock content %}
+
+

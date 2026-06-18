@@ -1,0 +1,1007 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="modinatheme">
+        <meta name="description" content="Art Model">
+        <!-- ======== Page title ============ -->
+        <title>Art Model</title>
+        <!--<< Favicon >>-->
+        <link rel="shortcut icon" href="{% static 'assets/img/artmodel.png' %}">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <!--<< Font Awesome.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.css' %}">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <!--<< Splitting Animation.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/splitting.css' %}">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+        <!--<< Style.css >>-->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+ {% include "partais/nav.html" %}
+
+ <div class="ScrollSmoother-content">
+    {% include "partais/slidebar.html" %}
+    <!--<< Breadcrumb Section Start >>-->
+    {% comment %} <div class="breadcrumb-wrapper section-padding bg-cover"
+         style="background-image: url('{% static 'assets/arch/bg.jpg' %}');">
+
+        <div class="container">
+
+            <div class="page-heading">
+
+                <h1 class="wow fadeInUp"
+                    data-wow-delay=".3s">
+
+                    {{ project.title }}
+
+                </h1>
+
+                <ul class="breadcrumb-items wow fadeInUp"
+                    data-wow-delay=".5s">
+
+                    <li>
+
+                        <a href="{% url 'home' %}">
+                            Home
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                    </li>
+
+                    <li>
+
+                        <a href="{% url 'project' %}">
+                            Projects
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <i class="fas fa-chevron-right"></i>
+                    </li>
+
+                    <li>
+                        {{ project.title }}
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div> {% endcomment %}
+
+    <!-- Project Details Section Start -->
+
+    <section class="service-details-section fix section-padding">
+
+        <div class="container">
+
+            <div class="project-details-wrapper">
+
+                <div class="row g-4">
+
+                    <div class="row g-5">
+
+                        <!-- SIDEBAR -->
+                        <div class="col-xl-4 col-lg-4">
+
+                            <div class="main-sidebar sticky-style">
+
+                                <div class="single-sidebar-widget">
+
+                                    <div class="project-catagory">
+
+                                        <h3 class="splt-txt wow" data-splitting>
+                                            {{ project.project_type.name }}
+                                        </h3>
+
+                                        <p>
+                                            {{ project.short_description }}
+                                        </p>
+
+                                        <ul class="project-info-box p-4 bg-light rounded-4">
+                                            <h5 class="mb-4">Информация о проекте</h5>
+                                            <li>
+                                                Company
+                                                <span>{{ project.company.name }}</span>
+                                            </li>
+                                            <li>
+                                                Тип макета:
+                                                        <span>{{ project.project_type.title }}</span><br>
+                                                        
+                                            </li>
+                                            <li>
+                                                Year
+                                                <span>{{ project.year }}</span>
+                                            </li>
+
+                                            <li>
+                                                Scale
+                                                <span>{{ project.scale.value }}</span>
+                                            </li>
+
+                                            <li>
+                                                Views
+                                                <span>  <i class="fas fa-eye"></i> {{ project.views }}</span>
+                                            </li>
+                                                 <a href="{% url 'contact' %}" class="theme-btn w-100 mt-4">
+                                                    Заказать похожий макет
+                                                    <i class="fas fa-long-arrow-right ms-2"></i>
+                                                </a>
+                                        </ul>
+                                        <!-- Sidebar Info -->
+                                      
+                                      
+                                        <div class="social-icon d-flex align-items-center">
+
+                                            {% if project.facebook %}
+                                            <a href="{{ project.facebook }}">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+                                            {% endif %}
+
+                                            {% if project.instagram %}
+                                            <a href="{{ project.instagram }}">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                            {% endif %}
+
+                                            {% if project.telegram %}
+                                            <a href="{{ project.telegram }}">
+                                                <i class="fab fa-telegram-plane"></i>
+                                            </a>
+                                            {% endif %}
+
+                                            {% if project.youtube %}
+                                            <a href="{{ project.youtube }}">
+                                                <i class="fab fa-youtube"></i>
+                                            </a>
+                                            {% endif %}
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- RIGHT CONTENT -->
+                        <div class="col-xl-8 col-lg-8">
+
+                            <!-- SLIDER -->
+                            <div class="project-image-slider swiper">
+
+                                <div class="swiper-wrapper">
+
+                                    <div class="swiper-slide">
+
+                                        <div class="project-image">
+
+                                            <a href="{{ project.main_image.url }}"
+                                            class="project-popup">
+
+                                                <img src="{{ project.main_image.url }}"
+                                                    alt="{{ project.title }}">
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                    {% for image in project.images.all %}
+
+                                    <div class="swiper-slide">
+
+                                        <div class="project-image">
+
+                                            <a href="{{ image.image.url }}"
+                                            class="project-popup">
+
+                                                <img src="{{ image.image.url }}"
+                                                    alt="project-image">
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                    {% endfor %}
+
+                                </div>
+
+                                <div class="project-slider-btn">
+
+                                    <div class="project-button-prev">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </div>
+
+                                    <div class="project-button-next">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- CONTENT -->
+                            <div class="project-details-content mt-5">
+
+                                <h2 class="splt-txt wow"
+                                    data-splitting>
+
+                                    {{ project.title }}
+
+                                </h2>
+
+                                <p>
+                                    {{ project.description|safe }}
+                                    
+                                </p>
+
+                            </div>
+                            
+
+                            <!-- REVIEWS -->
+                            <div class="project-review-wrapper mt-5">
+
+                                <div class="review-title-wrap mb-4">
+
+                                    <h3>
+                                        Reviews
+                                        <span>({{ project.reviews.count }})</span>
+                                    </h3>
+
+                                </div>
+
+                                {% for review in project.reviews.all %}
+
+                                <div class="single-review-item">
+
+                                    <div class="review-top">
+
+                                        <div class="review-user">
+
+                                            <div class="review-avatar">
+                                                {{ review.name|first }}
+                                            </div>
+
+                                            <div>
+
+                                                <h5>
+                                                    {{ review.name }}
+                                                </h5>
+
+                                                <span>
+                                                    {{ review.created_at|date:"d M Y" }}
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <p>
+                                        {{ review.message }}
+                                    </p>
+
+                                </div>
+
+                                {% empty %}
+
+                                <div class="empty-review">
+                                    No reviews yet
+                                </div>
+
+                                {% endfor %}
+
+                            </div>
+
+                            <!-- ADD REVIEW -->
+                            <div class="review-form-wrapper mt-5">
+
+                                <h3 class="mb-4">
+                                    Leave A Review
+                                </h3>
+
+                                <form method="POST"
+                                    class="review-form">
+
+                                    {% csrf_token %}
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <div class="form-clt">
+
+                                                <input type="text"
+                                                    name="name"
+                                                    placeholder="Your Name"
+                                                    required>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <div class="form-clt">
+
+                                                <input type="email"
+                                                    name="email"
+                                                    placeholder="Your Email"
+                                                    required>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-12">
+
+                                            <div class="form-clt">
+
+                                                <textarea name="message"
+                                                        rows="5"
+                                                        placeholder="Write Review"
+                                                        required></textarea>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-12">
+
+                                            <button type="submit"
+                                                    class="theme-btn">
+
+                                                Submit Review
+
+                                                <i class="fas fa-long-arrow-right"></i>
+
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- RELATED PROJECTS -->
+
+{% if related_projects %}
+
+<section class="related-project-section section-padding pt-0">
+
+    <div class="container">
+
+        <div class="section-title mb-4">
+
+            <h3>
+                Related Projects
+            </h3>
+
+        </div>
+
+        <div class="row g-3">
+
+            {% for item in related_projects %}
+
+            <div class="col-xl-3 col-lg-4 col-md-6 col-6">
+
+                <a href="{% url 'project_detail' item.slug %}"
+                   class="related-card">
+
+                    <div class="related-thumb">
+
+                        <img src="{{ item.main_image.url }}"
+                             alt="{{ item.title }}">
+
+                    </div>
+
+                    <div class="related-info">
+
+                        <h6>
+                            {{ item.title|truncatechars:18 }}
+                        </h6>
+
+                        <span>
+
+                            {{ item.scale.value }}
+
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+    {% include "partais/footer.html" %}
+
+</div>
+<<style>/* IMAGE SLIDER */
+                        /* MINI RELATED CARD */
+
+        .related-card{
+            display:block;
+        }
+
+        .related-thumb{
+            height:190px;
+            border-radius:12px;
+            overflow:hidden;
+            background:#111;
+        }
+
+        .related-thumb img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            transition:.4s;
+        }
+
+        .related-info{
+            padding-top:12px;
+        }
+
+        .related-info h6{
+            font-size:16px;
+            margin-bottom:2px;
+            color:#111;
+            font-weight:600;
+        }
+
+        .related-info span{
+            font-size:13px;
+            color:#999;
+        }
+
+        .related-card:hover .related-thumb img{
+            transform:scale(1.05);
+        }
+                .project-review-wrapper{
+                    max-height: 700px;
+                    overflow-y: auto;
+                    padding-right: 10px;
+                }
+
+                /* SCROLLBAR */
+
+                .project-review-wrapper::-webkit-scrollbar{
+                    width: 6px;
+                }
+
+                .project-review-wrapper::-webkit-scrollbar-track{
+                    background: #f1f1f1;
+                    border-radius: 20px;
+                }
+
+                .project-review-wrapper::-webkit-scrollbar-thumb{
+                    background: #c9b37e;
+                    border-radius: 20px;
+                }
+                .project-image-slider{
+
+                    position: relative;
+
+                    overflow: hidden;
+
+                    border-radius: 20px;
+                }
+
+                .project-image{
+
+                    height: 650px;
+
+                    overflow: hidden;
+
+                    border-radius: 20px;
+                }
+
+                .project-image img{
+
+                    width: 100%;
+
+                    height: 100%;
+
+                    object-fit: cover;
+
+                    transition: 0.5s;
+                }
+
+                .project-image:hover img{
+
+                    transform: scale(1.04);
+                }
+
+                /* NAVIGATION */
+
+                .project-slider-btn{
+
+                    position: absolute;
+
+                    top: 50%;
+
+                    left: 0;
+
+                    width: 100%;
+
+                    transform: translateY(-50%);
+
+                    z-index: 10;
+
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    padding: 0 25px;
+                }
+
+                .project-button-prev,
+                .project-button-next{
+
+                    width: 55px;
+
+                    height: 55px;
+
+                    background: rgba(255,255,255,0.15);
+
+                    backdrop-filter: blur(10px);
+
+                    border-radius: 50%;
+
+                    display: flex;
+
+                    align-items: center;
+
+                    justify-content: center;
+
+                    cursor: pointer;
+
+                    color: #fff;
+
+                    transition: 0.3s;
+                }
+
+                .project-button-prev:hover,
+                .project-button-next:hover{
+
+                    background: #c9b37e;
+                }
+
+                /* REVIEWS */
+
+                .project-review-wrapper{
+
+                    margin-top: 80px;
+                }
+
+                .review-title-wrap h3{
+
+                    font-size: 34px;
+
+                    margin-bottom: 35px;
+                }
+
+                .single-review-item{
+
+                    padding: 35px;
+
+                    border-radius: 20px;
+
+                    background: #f8f8f8;
+
+                    margin-bottom: 25px;
+                }
+
+                .review-top{
+
+                    display: flex;
+
+                    justify-content: space-between;
+
+                    margin-bottom: 20px;
+                }
+
+                .review-user{
+
+                    display: flex;
+
+                    align-items: center;
+
+                    gap: 18px;
+                }
+
+                .review-avatar{
+
+                    width: 60px;
+
+                    height: 60px;
+
+                    border-radius: 50%;
+
+                    background: #111;
+
+                    color: #fff;
+
+                    display: flex;
+
+                    align-items: center;
+
+                    justify-content: center;
+
+                    font-size: 24px;
+
+                    font-weight: 700;
+                }
+
+                .review-user h5{
+
+                    margin-bottom: 4px;
+                }
+
+                .review-user span{
+
+                    color: #777;
+
+                    font-size: 14px;
+                }
+
+                /* FORM */
+
+                .review-form-wrapper{
+
+                    margin-top: 80px;
+
+                    padding: 50px;
+
+                    border-radius: 25px;
+
+                    background: #f8f8f8;
+                }
+
+                .review-form-wrapper h3{
+
+                    margin-bottom: 35px;
+                }
+
+                .form-clt{
+
+                    margin-bottom: 25px;
+                }
+
+                .form-clt input,
+                .form-clt textarea{
+
+                    width: 100%;
+
+                    border: none;
+
+                    padding: 18px 25px;
+
+                    border-radius: 14px;
+
+                    background: #fff;
+
+                    color: #111;
+                }
+
+                .form-clt input:focus,
+                .form-clt textarea:focus{
+
+                    outline: none;
+                }
+
+                /* IMAGE POPUP */
+
+                .mfp-bg{
+
+                    background: #000 !important;
+
+                    opacity: 0.96 !important;
+                }
+
+                img.mfp-img{
+
+                    border-radius: 14px;
+                }
+</style>
+        {% comment %} <div class="ScrollSmoother-content">
+            <!--<< Breadcrumb Section Start >>-->
+        <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('assets/img/breadcrumb.jpg');">
+            <div class="container">
+                <div class="page-heading">
+                    <h1 class="wow fadeInUp" data-wow-delay=".3s">Projects Details</h1>
+                    <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                        <li>
+                            <a href="">
+                            Home
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                        </li>
+                        <li>
+                            Projects Details
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+    
+            <!-- Service Details Section Start -->
+            <section class="service-details-section fix section-padding">
+                <div class="container">
+                    <div class="project-details-wrapper">
+                        <div class="row g-4">
+                            <div class="col-12 col-lg-4 order-2 order-md-1">
+                                <div class="main-sidebar">
+                                    <div class="single-sidebar-widget">
+                                        <div class="project-catagory">
+                                            <h3 class="splt-txt wow" data-splitting>Architecture Plus</h3>
+                                            <p>There are many variations passages a This category focariations of deign</p>
+                                            <ul>
+                                                <li>
+                                                    Client
+                                                    <span>Interior Design</span>
+                                                </li>
+                                                <li>
+                                                    Year 
+                                                    <span>December,2024</span>
+                                                </li>
+                                                <li>
+                                                    Author
+                                                    <span>Shikhon Islam</span>
+                                                </li>
+                                            </ul>
+                                            <div class="social-icon d-flex align-items-center">
+                                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                                <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-8 order-1 order-md-2">
+                                <div class="project-details-items">
+                                    <div class="project-image">
+                                        <img src="{% static 'assets/img/project/details-1.jpg' %}" alt="img">
+                                    </div>
+                                    <div class="project-details-content">
+                                        <h2 class="splt-txt wow" data-splitting>Redefining the concept of living</h2>
+                                        <p>
+                                            There are many variations psages a This category focariations of deign Redefining the an  concept of  This category focuses on the design and construction of buildings and the arrangement furniture and decorative elements within them
+                                        </p>
+                                        <ul class="d-list">
+                                            <li>
+                                                <i class="far fa-chevron-double-right"></i>
+                                                Transform your space, transform your life
+                                            </li>
+                                            <li>
+                                                <i class="far fa-chevron-double-right"></i>
+                                                Elevate your interior, elevate your lifestyle
+                                            </li>
+                                            <li>
+                                                <i class="far fa-chevron-double-right"></i>
+                                                Discover the beauty within your walls
+                                            </li>
+                                            <li>
+                                                <i class="far fa-chevron-double-right"></i>
+                                                Design your dream space, one room at a time
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <p class="mt-5">
+                                        There are many variations passages a This category focariations of dei Redefining the an  concept of living This category focuses on the desi construction of buildings and the arrangement furniture and decorative elements within them There are many variation passages a This category focariations of deign Redefining the an  concept of living This category focuses on the design
+                                    </p>
+                                    <p class="mt-3">
+                                        There are many variations passages a This category focariations of deign Redefining the an  concept of living This category focuses on the design and construction of buildingse arrangemen
+                                    </p>
+                                    <div class="pro-details-items">
+                                        <div class="row g-0">
+                                            <div class="col-xxl-6">
+                                                <div class="thumb">
+                                                    <img src="{% static 'assets/img/project/details-2.jpg' %}" alt="img">
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-6">
+                                                <div class="pro-details-content-items">
+                                                    <div class="pro-details-cont">
+                                                        <h3 class="splt-txt wow" data-splitting>The Architect's Touch</h3>
+                                                    <p>
+                                                        There are many variations passages a  category focariations of deign Redefining the  concept of living This category focuses
+                                                    </p>
+                                                    </div>
+                                                    <div class="pro-details-cont">
+                                                        <h3 class="splt-txt wow" data-splitting>Concept of living</h3>
+                                                        <p>
+                                                            There are many variations passages a  category focariations of deign Redefining the  concept of living This category focuses
+                                                        </p>
+                                                        <p class="mt-3">
+                                                            There are many variations passages a  category focariations of deign Redefining the  concept of living This category focuses
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Cta Section Start -->
+            <section class="cta-banner-section-2">
+                <div class="container">
+                    <div class="cta-banner-wrapper-2">
+                        <div class="cta-image wow fadeInUp" data-wow-delay=".3s">
+                            <img src="{% static 'assets/img/cta-img.png' %}" alt="cta-img">
+                            <div class="circle-shape">
+                                <img src="{% static 'assets/img/circle-border.png' %}" alt="shape-img">
+                            </div>
+                        </div>
+                        <div class="section-title-area">
+                            <div class="section-title mb-0">
+                                <h2 class="text-white wow fadeInUp" data-wow-delay=".5s">
+                                    Crafting spaces that <br> the reflect style
+                                </h2>
+                            </div>
+                            <a href="" class="theme-btn bg-white padding-style wow fadeInUp" data-wow-delay=".7s">
+                                Get In Touch
+                                <i class="fas fa-long-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Footer Section Start -->
+   
+            {% include "partais/footer.html" %}
+        </div> {% endcomment %}
+
+        <!-- SWIPER -->
+
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+
+new Swiper(".project-image-slider", {
+
+    loop: true,
+
+    speed: 1000,
+
+    spaceBetween: 20,
+
+    navigation: {
+
+        nextEl: ".project-button-next",
+
+        prevEl: ".project-button-prev",
+    },
+});
+
+</script>
+
+
+<!-- IMAGE POPUP -->
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+
+$('.project-popup').magnificPopup({
+
+    type:'image',
+
+    gallery:{
+        enabled:true
+    }
+});
+
+</script>
+
+        <!--<< All JS Plugins >>-->
+        <script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script>
+        <!--<< Viewport Js >>-->
+        <script src="{% static 'assets/js/viewport.jquery.js' %}"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+        <!--<< Nice Select Js >>-->
+        <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="{% static 'assets/js/jquery.waypoints.js' %}"></script>
+        <!--<< Counterup Js >>-->
+        <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+        <!--<< Splitting Js >>-->
+        <script src="{% static 'assets/js/splitting.js' %}"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="{% static 'assets/js/wow.min.js' %}"></script>
+        <!--<< Splitting Animation Js >>-->
+        <script src="{% static 'assets/js/splitting-animation.js' %}"></script>
+        <!-- Gsap -->
+        <script src="{% static 'assets/js/gsap/gsap.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollTrigger.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollSmoother.min.js' %}"></script>
+        <!--<< Main.js >>-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>
+{% endblock content %}

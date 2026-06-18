@@ -1,0 +1,895 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="modinatheme">
+        <meta name="description" content="Art Model">
+        <!-- ======== Page title ============ -->
+        <title>Art Model</title>
+        <!--<< Favicon >>-->
+        <link rel="shortcut icon" href="{% static 'assets/img/artmodel.png' %}">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <!--<< Font Awesome.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.css' %}">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <!--<< Splitting Animation.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/splitting.css' %}">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+        <!--<< Style.css >>-->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+
+ 
+
+        {% include 'partais/nav.html' %}
+        
+        <div class="ScrollSmoother-content">
+            <!--<< Breadcrumb Section Start >>-->
+            {% include "partais/slidebar.html" %}
+
+    
+            <!--<< Blog Wrapper Here >>-->
+            <section class="blog-wrapper news-wrapper section-padding">
+
+                <div class="container">
+
+                    <div class="news-area">
+
+                        <div class="row">
+
+                            <!-- LEFT SIDE -->
+
+                            <div class="col-12 col-lg-8">
+
+                                <div class="blog-post-details border-wrap mt-0">
+
+                                    <div class="single-blog-post post-details mt-0">
+
+                                        <!-- IMAGE -->
+
+                                        <div class="post-featured-image mb-4">
+
+                                            <img src="{{ blog.image.url }}"
+                                                alt="{{ blog.title }}"
+                                                class="img-fluid w-100 rounded">
+
+                                        </div>
+
+                                        <!-- CONTENT -->
+
+                                        <div class="post-content pt-0">
+
+                                            <h2 class="mt-0">
+                                                {{ blog.title }}
+                                            </h2>
+
+                                            <div class="post-meta mt-3">
+
+                                                <span>
+                                                    <i class="fal fa-folder"></i>
+
+                                                    {{ blog.category.name }}
+                                                </span>
+
+                                                <span>
+                                                    <i class="fal fa-eye"></i>
+
+                                                    {{ blog.views }} Просмотров
+                                                </span>
+
+                                                <span>
+                                                    <i class="fal fa-calendar-alt"></i>
+
+                                                    {{ blog.created_at|date:"d F Y" }}
+                                                </span>
+
+                                            </div>
+
+                                            <div class="blog-content-area">
+
+                                                {{ blog.content|safe }}
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- SHARE -->
+
+                                    <div class="row tag-share-wrap">
+
+                                        <div class="col-lg-6 col-12">
+
+                                            <h4>Категория</h4>
+
+                                            <div class="tagcloud">
+
+                                                <a href="">
+                                                    {{ blog.category.name }}
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6 col-12 mt-3 mt-lg-0 text-lg-end">
+
+                                            <h4>Social Share</h4>
+
+                                            <div class="social-share">
+
+                                                <a target="_blank"
+                                                href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+
+                                                    <i class="fab fa-facebook-f"></i>
+
+                                                </a>
+
+                                                <a target="_blank"
+                                                href="https://t.me/share/url?url={{ request.build_absolute_uri }}">
+
+                                                    <i class="fab fa-telegram-plane"></i>
+
+                                                </a>
+
+                                                <a target="_blank"
+                                                href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}">
+
+                                                    <i class="fab fa-twitter"></i>
+
+                                                </a>
+
+                                                <a target="_blank"
+                                                href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}">
+
+                                                    <i class="fab fa-linkedin-in"></i>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                                                                                        <!-- REVIEWS -->
+                                    <div class="project-review-wrapper mt-5">
+
+                                        <div class="review-title-wrap mb-4">
+
+                                            <h3>
+                                                Reviews
+                                                <span>({{ blog.reviews.count }})</span>
+                                            </h3>
+
+                                        </div>
+
+                                        {% for review in reviews %}
+
+                                        <div class="single-review-item">
+
+                                            <div class="review-top">
+
+                                                <div class="review-user">
+
+                                                    <div class="review-avatar">
+                                                        {{ review.name|first }}
+                                                    </div>
+
+                                                    <div>
+
+                                                        <h5>
+                                                            {{ review.name }}
+                                                        </h5>
+
+                                                        <span>
+                                                            {{ review.created_at|date:"d M Y" }}
+                                                        </span>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <p>
+                                                {{ review.message }}
+                                            </p>
+
+                                        </div>
+
+                                        {% empty %}
+
+                                        <div class="empty-review">
+                                            No reviews yet
+                                        </div>
+
+                                        {% endfor %}
+
+                                    </div>
+
+                                    <!-- ADD REVIEW -->
+
+                                    <div class="review-form-wrapper mt-5">
+
+                                        <h3 class="mb-4">
+                                            Leave A Review
+                                        </h3>
+
+                                        <form method="POST"
+                                            class="review-form">
+
+                                            {% csrf_token %}
+
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+
+                                                    <div class="form-clt">
+
+                                                        <input type="text"
+                                                            name="name"
+                                                            placeholder="Your Name"
+                                                            required>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-6">
+
+                                                    <div class="form-clt">
+
+                                                        <input type="email"
+                                                            name="email"
+                                                            placeholder="Your Email"
+                                                            required>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-12">
+
+                                                    <div class="form-clt">
+
+                                                        <textarea name="message"
+                                                                rows="5"
+                                                                placeholder="Write Review"
+                                                                required></textarea>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-12">
+
+                                                    <button type="submit"
+                                                            class="theme-btn">
+
+                                                        Submit Review
+
+                                                        <i class="fas fa-long-arrow-right"></i>
+
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- SIDEBAR -->
+
+                            <div class="col-12 col-lg-4">
+
+                                <div class="main-sidebar">
+
+                                    <!-- SEARCH -->
+
+                                    <div class="single-sidebar-widget">
+
+                                        <div class="wid-title">
+
+                                            <h3>Search</h3>
+
+                                        </div>
+
+                                        <div class="search_widget">
+
+                                            <form method="GET"
+                                                action="{% url 'blog' %}">
+
+                                                <input type="text"
+                                                    name="q"
+                                                    placeholder="Keywords here....">
+
+                                                <button type="submit">
+
+                                                    <i class="fal fa-search"></i>
+
+                                                </button>
+
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- POPULAR POSTS -->
+
+                                    <div class="single-sidebar-widget">
+
+                                        <div class="wid-title">
+
+                                            <h3>Popular Feeds</h3>
+
+                                        </div>
+
+                                        <div class="popular-posts">
+
+                                            {% for item in popular_blogs %}
+
+                                            <div class="single-post-item">
+
+                                                <div class="thumb bg-cover"
+                                                    style="background-image: url('{{ item.image.url }}');">
+
+                                                </div>
+
+                                                <div class="post-content">
+
+                                                    <h5>
+
+                                                        <a href="{% url 'blog_detail' item.slug %}">
+
+                                                            {{ item.title|truncatewords:6 }}
+
+                                                        </a>
+
+                                                    </h5>
+
+                                                    <div class="post-date">
+
+                                                        <i class="far fa-calendar-alt"></i>
+
+                                                        {{ item.created_at|date:"d M Y" }}
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            {% endfor %}
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- CATEGORIES -->
+
+                                    <div class="single-sidebar-widget">
+
+                                        <div class="wid-title">
+
+                                            <h3>Categories</h3>
+
+                                        </div>
+
+                                        <div class="widget_categories">
+
+                                            <ul>
+
+                                                {% for category in categories %}
+
+                                                <li>
+
+                                                    <a href="{% url 'blog' %}?category={{ category.id }}">
+
+                                                        {{ category.name }}
+
+                                                        <span>
+
+                                                            {{ category.blog_set.count }}
+
+                                                        </span>
+
+                                                    </a>
+
+                                                </li>
+
+                                                {% endfor %}
+
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- SOCIAL -->
+
+                                    <div class="single-sidebar-widget">
+
+                                        <div class="wid-title">
+
+                                            <h3>Never Miss News</h3>
+
+                                        </div>
+
+                                        <div class="social-link">
+
+                                            <a href="#">
+                                                <i class="fab fa-facebook-f"></i>
+                                            </a>
+
+                                            <a href="#">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+
+                                            <a href="#">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+
+                                            <a href="#">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a>
+
+                                            <a href="#">
+                                                <i class="fab fa-youtube"></i>
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- RELATED BLOGS -->
+
+                                    <div class="single-sidebar-widget">
+
+                                        <div class="wid-title">
+
+                                            <h3>Related Blogs</h3>
+
+                                        </div>
+
+                                        <div class="popular-posts">
+
+                                            {% for item in related_blogs %}
+
+                                            <div class="single-post-item">
+
+                                                <div class="thumb bg-cover"
+                                                    style="background-image: url('{{ item.image.url }}');">
+
+                                                </div>
+
+                                                <div class="post-content">
+
+                                                    <h5>
+
+                                                        <a href="{% url 'blog_detail' item.slug %}">
+
+                                                            {{ item.title|truncatewords:5 }}
+
+                                                        </a>
+
+                                                    </h5>
+
+                                                    <div class="post-date">
+
+                                                        <i class="far fa-calendar-alt"></i>
+
+                                                        {{ item.created_at|date:"d M Y" }}
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            {% endfor %}
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+            
+            {% include "partais/footer.html" %}
+        </div>
+        <<style>/* IMAGE SLIDER */
+                                /* MINI RELATED CARD */
+
+                .related-card{
+                    display:block;
+                }
+
+                .related-thumb{
+                    height:190px;
+                    border-radius:12px;
+                    overflow:hidden;
+                    background:#111;
+                }
+
+                .related-thumb img{
+                    width:100%;
+                    height:100%;
+                    object-fit:cover;
+                    transition:.4s;
+                }
+
+                .related-info{
+                    padding-top:12px;
+                }
+
+                .related-info h6{
+                    font-size:16px;
+                    margin-bottom:2px;
+                    color:#111;
+                    font-weight:600;
+                }
+
+                .related-info span{
+                    font-size:13px;
+                    color:#999;
+                }
+
+                .related-card:hover .related-thumb img{
+                    transform:scale(1.05);
+                }
+                        .project-review-wrapper{
+                            max-height: 700px;
+                            overflow-y: auto;
+                            padding-right: 10px;
+                        }
+
+                        /* SCROLLBAR */
+
+                        .project-review-wrapper::-webkit-scrollbar{
+                            width: 6px;
+                        }
+
+                        .project-review-wrapper::-webkit-scrollbar-track{
+                            background: #f1f1f1;
+                            border-radius: 20px;
+                        }
+
+                        .project-review-wrapper::-webkit-scrollbar-thumb{
+                            background: #c9b37e;
+                            border-radius: 20px;
+                        }
+                        .project-image-slider{
+
+                            position: relative;
+
+                            overflow: hidden;
+
+                            border-radius: 20px;
+                        }
+
+                        .project-image{
+
+                            height: 650px;
+
+                            overflow: hidden;
+
+                            border-radius: 20px;
+                        }
+
+                        .project-image img{
+
+                            width: 100%;
+
+                            height: 100%;
+
+                            object-fit: cover;
+
+                            transition: 0.5s;
+                        }
+
+                        .project-image:hover img{
+
+                            transform: scale(1.04);
+                        }
+
+                        /* NAVIGATION */
+
+                        .project-slider-btn{
+
+                            position: absolute;
+
+                            top: 50%;
+
+                            left: 0;
+
+                            width: 100%;
+
+                            transform: translateY(-50%);
+
+                            z-index: 10;
+
+                            display: flex;
+
+                            justify-content: space-between;
+
+                            padding: 0 25px;
+                        }
+
+                        .project-button-prev,
+                        .project-button-next{
+
+                            width: 55px;
+
+                            height: 55px;
+
+                            background: rgba(255,255,255,0.15);
+
+                            backdrop-filter: blur(10px);
+
+                            border-radius: 50%;
+
+                            display: flex;
+
+                            align-items: center;
+
+                            justify-content: center;
+
+                            cursor: pointer;
+
+                            color: #fff;
+
+                            transition: 0.3s;
+                        }
+
+                        .project-button-prev:hover,
+                        .project-button-next:hover{
+
+                            background: #c9b37e;
+                        }
+
+                        /* REVIEWS */
+
+                        .project-review-wrapper{
+
+                            margin-top: 80px;
+                        }
+
+                        .review-title-wrap h3{
+
+                            font-size: 34px;
+
+                            margin-bottom: 35px;
+                        }
+
+                        .single-review-item{
+
+                            padding: 35px;
+
+                            border-radius: 20px;
+
+                            background: #f8f8f8;
+
+                            margin-bottom: 25px;
+                        }
+
+                        .review-top{
+
+                            display: flex;
+
+                            justify-content: space-between;
+
+                            margin-bottom: 20px;
+                        }
+
+                        .review-user{
+
+                            display: flex;
+
+                            align-items: center;
+
+                            gap: 18px;
+                        }
+
+                        .review-avatar{
+
+                            width: 60px;
+
+                            height: 60px;
+
+                            border-radius: 50%;
+
+                            background: #111;
+
+                            color: #fff;
+
+                            display: flex;
+
+                            align-items: center;
+
+                            justify-content: center;
+
+                            font-size: 24px;
+
+                            font-weight: 700;
+                        }
+
+                        .review-user h5{
+
+                            margin-bottom: 4px;
+                        }
+
+                        .review-user span{
+
+                            color: #777;
+
+                            font-size: 14px;
+                        }
+
+                        /* FORM */
+
+                        .review-form-wrapper{
+
+                            margin-top: 80px;
+
+                            padding: 50px;
+
+                            border-radius: 25px;
+
+                            background: #f8f8f8;
+                        }
+
+                        .review-form-wrapper h3{
+
+                            margin-bottom: 35px;
+                        }
+
+                        .form-clt{
+
+                            margin-bottom: 25px;
+                        }
+
+                        .form-clt input,
+                        .form-clt textarea{
+
+                            width: 100%;
+
+                            border: none;
+
+                            padding: 18px 25px;
+
+                            border-radius: 14px;
+
+                            background: #fff;
+
+                            color: #111;
+                        }
+
+                        .form-clt input:focus,
+                        .form-clt textarea:focus{
+
+                            outline: none;
+                        }
+
+                        /* IMAGE POPUP */
+
+                        .mfp-bg{
+
+                            background: #000 !important;
+
+                            opacity: 0.96 !important;
+                        }
+
+                        img.mfp-img{
+
+                            border-radius: 14px;
+                        }
+        </style>
+        <style>
+          
+
+                        .blog-content-area img{
+                            max-width: 100%;
+                            border-radius: 12px;
+                            margin: 25px 0;
+                        }
+
+                        .blog-content-area p{
+                            margin-bottom: 20px;
+                            line-height: 1.9;
+                        }
+
+                        .blog-content-area h1,
+                        .blog-content-area h2,
+                        .blog-content-area h3,
+                        .blog-content-area h4,
+                        .blog-content-area h5{
+                            margin-top: 35px;
+                            margin-bottom: 20px;
+                        }
+
+                        .blog-content-area ul{
+                            padding-left: 20px;
+                            margin-bottom: 25px;
+                        }
+
+                        .blog-content-area blockquote{
+                            border-left: 3px solid #c9b37e;
+                            padding-left: 20px;
+                            margin: 30px 0;
+                            font-style: italic;
+                            opacity: .8;
+                        }
+
+
+        </style>
+
+        <!--<< All JS Plugins >>-->
+        <script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script>
+        <!--<< Viewport Js >>-->
+        <script src="{% static 'assets/js/viewport.jquery.js' %}"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+        <!--<< Nice Select Js >>-->
+        <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="{% static 'assets/js/jquery.waypoints.js' %}"></script>
+        <!--<< Counterup Js >>-->
+        <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+        <!--<< Splitting Js >>-->
+        <script src="{% static 'assets/js/splitting.js' %}"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="{% static 'assets/js/wow.min.js' %}"></script>
+        <!--<< Splitting Animation Js >>-->
+        <script src="{% static 'assets/js/splitting-animation.js' %}"></script>
+        <!-- Gsap -->
+        <script src="{% static 'assets/js/gsap/gsap.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollTrigger.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollSmoother.min.js' %}"></script>
+        <!--<< Main.js >>-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>
+{% endblock content %}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="ScrollSmoother-content">
+    {% include "partais/nav.html" %}
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-wrapper section-padding bg-cover" 
+             style="background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(0,0,0,0.5)), 
+                    url('{% static 'assets/img/1.jpg' %}');">
+        <div class="container">
+            <div class="page-heading">
+                <h1 class="wow fadeInUp" data-wow-delay=".3s">Поиск</h1>
+                <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                    <li><a href="{% url 'home' %}">Главная</a></li>
+                    <li><i class="fas fa-chevron-right"></i></li>
+                    <li class="active">Результаты поиска</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="search-results-section section-padding">
+        <div class="container">
+            
+            <div class="search-header mb-5">
+                <h2>
+                    Результаты поиска по запросу: 
+                    <span class="text-primary">"{{ query }}"</span>
+                </h2>
+                {% if results_count %}
+                    <p class="text-muted">Найдено результатов: <strong>{{ results_count }}</strong></p>
+                {% endif %}
+            </div>
+
+            {% if projects or blogs %}
+
+                <!-- ================== PROJECTS ================== -->
+                {% if projects %}
+                <h4 class="mb-4">Проекты</h4>
+                <div class="row g-4 mb-5">
+                    {% for project in projects %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="news-card-items">
+                            <div class="news-image bg-cover" 
+                                 style="background-image: url('{{ project.main_image.url }}'); height: 250px;">
+                            </div>
+                            <div class="news-content">
+                                <h3>
+                                    <a href="{% url 'project_detail' project.slug %}">{{ project.title }}</a>
+                                </h3>
+                                <p>{{ project.description|striptags|truncatewords:20 }}</p>
+                                <small class="text-muted">
+                                    {{ project.year }} • {{ project.project_type.title }}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!-- ================== BLOGS ================== -->
+                {% if blogs %}
+                <h4 class="mb-4">Статьи и Новости</h4>
+                <div class="row g-4">
+                    {% for blog in blogs %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="news-card-items">
+                            <div class="news-image bg-cover" 
+                                 style="background-image: url('{{ blog.image.url }}'); height: 250px;">
+                            </div>
+                            <div class="news-content">
+                                <h3>
+                                    <a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a>
+                                </h3>
+                                <p>{{ blog.content|striptags|truncatewords:20 }}</p>
+                                <small class="text-muted">
+                                    {{ blog.created_at|date:"d.m.Y" }}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+            {% else %}
+                <div class="text-center py-5">
+                    <h3>По запросу "{{ query }}" ничего не найдено.</h3>
+                    <p class="text-muted mb-4">Попробуйте изменить ключевые слова или посмотреть все проекты.</p>
+                    <a href="{% url 'project' %}" class="theme-btn">Посмотреть все проекты</a>
+                </div>
+            {% endif %}
+
+        </div>
+    </section>
+    {% include "partais/footer.html" %}
+</div>
+
+{% endblock %}

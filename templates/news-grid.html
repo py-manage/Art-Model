@@ -1,0 +1,612 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="modinatheme">
+        <meta name="description" content="Art Model">
+        <!-- ======== Page title ============ -->
+        <title>Art Model</title>
+        <!--<< Favicon >>-->
+        <link rel="shortcut icon" href="{% static 'assets/img/artmodel.png' %}">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <!--<< Font Awesome.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.css' %}">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <!--<< Splitting Animation.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/splitting.css' %}">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+        <!--<< Style.css >>-->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+
+
+        {% include "partais/nav.html" %}
+
+
+
+
+        <div class="ScrollSmoother-content">
+             <!--<< Breadcrumb Section Start >>-->
+            {% include "partais/slidebar.html" %}
+
+    
+            <!-- News Section Start -->
+            {% comment %} <section class="news-section section-padding fix">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="news-card-items style-2 mt-0">
+                                <div class="news-image bg-cover" style="background-image: url('{% static 'assets/img/news/06.jpg' %}');"></div>
+                                <div class="news-content">
+                                    <ul>
+                                        <li>
+                                            <i class="fas fa-calendar-alt"></i>
+                                            October 19, 2024
+                                        </li>
+                                        <li>
+                                            <i class="far fa-user"></i>
+                                            By admin
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a href="">Discover the Quintessence of Interior Design</a>
+                                    </h3>
+                                    <p>
+                                        Financial planners help people to gain knowledge aboutw toio invest and save le all 
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Load More <i class="far fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                            <div class="news-card-items style-2 mt-0">
+                                <div class="news-image bg-cover" style="background-image: url('{% static 'assets/img/news/07.jpg' %}');"></div>
+                                <div class="news-content">
+                                    <ul>
+                                        <li>
+                                            <i class="fas fa-calendar-alt"></i>
+                                            October 19, 2024
+                                        </li>
+                                        <li>
+                                            <i class="far fa-user"></i>
+                                            By admin
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a href="">Interior Excellence Indulge in Interior Serenity</a>
+                                    </h3>
+                                    <p>
+                                        Financial planners help people to gain knowledge aboutw toio invest and save le all 
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Load More <i class="far fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                            <div class="news-card-items style-2 mt-0">
+                                <div class="news-image bg-cover" style="background-image: url('{% static 'assets/img/news/08.jpg' %}');"></div>
+                                <div class="news-content">
+                                    <ul>
+                                        <li>
+                                            <i class="fas fa-calendar-alt"></i>
+                                            October 19, 2024
+                                        </li>
+                                        <li>
+                                            <i class="far fa-user"></i>
+                                            By admin
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a href="">Unlock the Beauty of Your Living Space with</a>
+                                    </h3>
+                                    <p>
+                                        Financial planners help people to gain knowledge aboutw toio invest and save le all 
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Load More <i class="far fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
+                            <div class="news-card-items style-2 mt-0">
+                                <div class="news-image bg-cover" style="background-image: url('{% static 'assets/img/news/08.jpg' %}');"></div>
+                                <div class="news-content">
+                                    <ul>
+                                        <li>
+                                            <i class="fas fa-calendar-alt"></i>
+                                            October 19, 2024
+                                        </li>
+                                        <li>
+                                            <i class="far fa-user"></i>
+                                            By admin
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a href="">Unlock the Beauty of Your Living Space with</a>
+                                    </h3>
+                                    <p>
+                                        Financial planners help people to gain knowledge aboutw toio invest and save le all 
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Load More <i class="far fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
+                            <div class="news-card-items style-2 mt-0">
+                                <div class="news-image bg-cover" style="background-image: url('{% static 'assets/img/news/06.jpg' %}');"></div>
+                                <div class="news-content">
+                                    <ul>
+                                        <li>
+                                            <i class="fas fa-calendar-alt"></i>
+                                            October 19, 2024
+                                        </li>
+                                        <li>
+                                            <i class="far fa-user"></i>
+                                            By admin
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a href="">Discover the Quintessence of Interior Design</a>
+                                    </h3>
+                                    <p>
+                                        Financial planners help people to gain knowledge aboutw toio invest and save le all 
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Load More <i class="far fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
+                            <div class="news-card-items style-2 mt-0">
+                                <div class="news-image bg-cover" style="background-image: url('{% static 'assets/img/news/07.jpg' %}');"></div>
+                                <div class="news-content">
+                                    <ul>
+                                        <li>
+                                            <i class="fas fa-calendar-alt"></i>
+                                            October 19, 2024
+                                        </li>
+                                        <li>
+                                            <i class="far fa-user"></i>
+                                            By admin
+                                        </li>
+                                    </ul>
+                                    <h3>
+                                        <a href="">Interior Excellence Indulge in Interior Serenity</a>
+                                    </h3>
+                                    <p>
+                                        Financial planners help people to gain knowledge aboutw toio invest and save le all 
+                                    </p>
+                                    <a href="" class="link-btn">
+                                        Load More <i class="far fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-nav-wrap mt-5 text-center">
+                        <ul>
+                            <li><a class="page-numbers" href="#"><i class="fal fa-long-arrow-left"></i></a></li>
+                            <li><a class="page-numbers" href="#">01</a></li>
+                            <li><a class="page-numbers" href="#">02</a></li>
+                            <li><a class="page-numbers" href="#">..</a></li>
+                            <li><a class="page-numbers" href="#">10</a></li>
+                            <li><a class="page-numbers" href="#">11</a></li>
+                            <li><a class="page-numbers" href="#"><i class="fal fa-long-arrow-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section> {% endcomment %}
+            <section class="news-section section-padding fix">
+
+                    <div class="container">
+
+                        <!-- FILTER -->
+
+                        <div class="blog-filter-wrap">
+
+                            <a href="{% url 'blog' %}"
+                            class="{% if not current_category %}active{% endif %}">
+
+                                Все
+
+                            </a>
+
+                            {% for category in categories %}
+
+                                <a href="?category={{ category.id }}"
+                                class="{% if current_category == category.id|stringformat:'s' %}active{% endif %}">
+
+                                    {{ category.name }}
+
+                                </a>
+
+                            {% endfor %}
+
+                        </div>
+
+                        <!-- BLOG GRID -->
+
+                        <div class="row g-4">
+
+                            {% for blog in blogs %}
+
+                            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                                data-wow-delay=".3s">
+
+                                <div class="news-card-items style-2 mt-0">
+
+                                    <!-- IMAGE -->
+
+                                    <div class="news-image bg-cover"
+                                        style="background-image: url('{{ blog.image.url }}');">
+
+                                        <a href="{% url 'blog_detail' blog.slug %}"
+                                        class="blog-overlay-link"></a>
+
+                                    </div>
+
+                                    <!-- CONTENT -->
+
+                                    <div class="news-content">
+
+                                        <ul>
+
+                                            <li>
+
+                                                <i class="fas fa-calendar-alt"></i>
+
+                                                {{ blog.created_at|date:"F d, Y" }}
+
+                                            </li>
+
+                                            <li>
+
+                                                <i class="far fa-folder"></i>
+
+                                                {{ blog.category.name }}
+
+                                            </li>
+
+                                        </ul>
+
+                                        <h3>
+
+                                            <a href="{% url 'blog_detail' blog.slug %}">
+
+                                                {{ blog.title }}
+
+                                            </a>
+
+                                        </h3>
+
+                                        <p>
+
+                                            {{ blog.content|striptags|truncatewords:18 }}
+
+                                        </p>
+
+                                        <a href="{% url 'blog_detail' blog.slug %}"
+                                        class="link-btn">
+
+                                            Read More
+
+                                            <i class="far fa-plus"></i>
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+            </section>          
+
+
+             <style>
+                /* =========================
+                            BLOG FILTER
+                            ========================= */
+
+                            .blog-filter-wrap{
+
+                                display: flex;
+
+                                justify-content: center;
+
+                                align-items: center;
+
+                                gap: 16px;
+
+                                flex-wrap: wrap;
+
+                                margin-bottom: 60px;
+                            }
+
+                            .blog-filter-wrap a{
+
+                                padding: 12px 24px;
+
+                                border: 1px solid rgba(0,0,0,0.08);
+
+                                color: #555;
+
+                                text-decoration: none;
+
+                                font-size: 14px;
+
+                                letter-spacing: 1px;
+
+                                transition: all 0.35s ease;
+
+                                background: #fff;
+                            }
+
+                            .blog-filter-wrap a:hover{
+
+                                background: #a49369;
+
+                                color: #fff;
+
+                                border-color: #a49369;
+                            }
+
+                            .blog-filter-wrap a.active{
+
+                                background: #a49369;
+
+                                color: #fff;
+
+                                border-color: #a49369;
+                            }
+
+                            /* =========================
+                            BLOG CARD
+                            ========================= */
+
+                            .news-card-items{
+
+                                background: #fff;
+
+                                overflow: hidden;
+
+                                transition: all 0.4s ease;
+
+                                height: 100%;
+
+                                border: 1px solid rgba(0,0,0,0.06);
+                            }
+
+                            .news-card-items:hover{
+
+                                transform: translateY(-6px);
+                            }
+
+                            /* IMAGE */
+
+                            .news-image{
+
+                                height: 280px;
+
+                                position: relative;
+
+                                overflow: hidden;
+                            }
+
+                            .news-image::before{
+
+                                content: '';
+
+                                position: absolute;
+
+                                inset: 0;
+
+                                background: linear-gradient(
+                                    to top,
+                                    rgba(0,0,0,0.35),
+                                    transparent
+                                );
+
+                                opacity: 0;
+
+                                transition: 0.4s;
+                            }
+
+                            .news-card-items:hover .news-image::before{
+
+                                opacity: 1;
+                            }
+
+                            .news-image{
+
+                                background-size: cover;
+
+                                background-position: center;
+
+                                transition: transform 0.5s ease;
+                            }
+
+                            .news-card-items:hover .news-image{
+
+                                transform: scale(1.04);
+                            }
+
+                            /* CONTENT */
+
+                            .news-content{
+
+                                padding: 30px;
+                            }
+
+                            .news-content ul{
+
+                                display: flex;
+
+                                gap: 20px;
+
+                                padding: 0;
+
+                                margin: 0 0 18px;
+
+                                list-style: none;
+
+                                flex-wrap: wrap;
+                            }
+
+                            .news-content ul li{
+
+                                font-size: 14px;
+
+                                color: #777;
+                            }
+
+                            .news-content ul li i{
+
+                                color: #a49369;
+
+                                margin-right: 6px;
+                            }
+
+                            /* TITLE */
+
+                            .news-content h3{
+
+                                margin-bottom: 16px;
+                            }
+
+                            .news-content h3 a{
+
+                                color: #111;
+
+                                text-decoration: none;
+
+                                font-size: 28px;
+
+                                line-height: 1.4;
+
+                                transition: 0.3s;
+                            }
+
+                            .news-content h3 a:hover{
+
+                                color: #a49369;
+                            }
+
+                            /* TEXT */
+
+                            .news-content p{
+
+                                color: #666;
+
+                                line-height: 1.8;
+
+                                margin-bottom: 25px;
+                            }
+
+                            /* BUTTON */
+
+                            .link-btn{
+
+                                display: inline-flex;
+
+                                align-items: center;
+
+                                gap: 10px;
+
+                                color: #111;
+
+                                text-decoration: none;
+
+                                transition: 0.3s;
+
+                                font-weight: 500;
+                            }
+
+                            .link-btn:hover{
+
+                                color: #a49369;
+                            }
+
+                            .link-btn i{
+
+                                font-size: 13px;
+                            }
+             </style>
+            <!-- Cta Section Start -->
+ 
+    
+            <!-- Footer Section Start -->
+              {% include "partais/footer.html" %}
+
+        </div>
+
+       
+
+        <!--<< All JS Plugins >>-->
+        <script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script>
+        <!--<< Viewport Js >>-->
+        <script src="{% static 'assets/js/viewport.jquery.js' %}"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+        <!--<< Nice Select Js >>-->
+        <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="{% static 'assets/js/jquery.waypoints.js' %}"></script>
+        <!--<< Counterup Js >>-->
+        <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+        <!--<< Splitting Js >>-->
+        <script src="{% static 'assets/js/splitting.js' %}"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="{% static 'assets/js/wow.min.js' %}"></script>
+        <!--<< Splitting Animation Js >>-->
+        <script src="{% static 'assets/js/splitting-animation.js' %}"></script>
+        <!-- Gsap -->
+        <script src="{% static 'assets/js/gsap/gsap.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollTrigger.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollSmoother.min.js' %}"></script>
+        <!--<< Main.js >>-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>
+{% endblock content %}
+

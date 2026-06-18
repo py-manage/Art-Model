@@ -1,0 +1,40 @@
+<!-- ================== SLIDER BANNER (Breadcrumb o'rniga) ================== -->
+{% if sliders %}
+
+            
+            {% for slide in sliders %}
+        <div class="breadcrumb-wrapper section-padding bg-cover" style="background-image: url('{{ slide.image.url }}');">
+                  
+                    <div class="container">
+                        <div class="page-heading">
+                            <h1 class="wow fadeInUp" data-wow-delay=".3s">{{ slide.title }}</h1>
+                            
+                            <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                        <li>
+                            <a href="{% url 'home' %}">
+                            Home
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                        </li>
+                        <li>
+                            {{ slide.title }}
+                        </li>
+                    </ul>
+                        </div>
+                    </div>
+                
+        </div>
+
+            {% endfor %}
+
+       
+
+
+
+
+{% else %}
+    <p>Slayder topilmadi.</p>
+{% endif %}
+

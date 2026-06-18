@@ -1,0 +1,375 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <!--<< Header Area >>-->
+    <head>
+        <!-- ========== Meta Tags ========== -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="modinatheme">
+        <meta name="description" content="Art Model">
+        <!-- ======== Page title ============ -->
+        <title>Art Model</title>
+        <!--<< Favicon >>-->
+        <link rel="shortcut icon" href="{% static 'assets/img/artmodel.png' %}">
+        <!--<< Bootstrap min.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <!--<< Font Awesome.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.css' %}">
+        <!--<< Animate.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <!--<< Splitting Animation.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/splitting.css' %}">
+        <!--<< Magnific Popup.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+        <!--<< MeanMenu.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+        <!--<< Swiper Bundle.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.min.css' %}">
+        <!--<< Nice Select.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+        <!--<< Main.css >>-->
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+        <!--<< Style.css >>-->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+
+    <body>
+{% include "partais/nav.html" %}
+
+        <div class="ScrollSmoother-content">
+            <!--<< Breadcrumb Section Start >>-->
+                        {% include "partais/slidebar.html" %}
+
+    
+            <!-- Service Details Section Start -->
+<section class="service-details-section fix section-padding">
+
+    <div class="container">
+
+        <div class="service-details-wrapper">
+
+            <div class="row g-5">
+
+                <!-- LEFT CONTENT -->
+
+                <div class="col-12 col-lg-8">
+
+                    <div class="service-details-items">
+
+                        <div class="service-image">
+
+                            <img src="{{ service.image.url }}"
+                                 alt="{{ service.title }}">
+
+                        </div>
+
+                        <div class="details-content">
+
+                            <h2 class="splt-txt wow"
+                                data-splitting>
+
+                                {{ service.title }}
+
+                            </h2>
+
+                            <p class="mt-3">
+
+                                {{ service.short_description }}
+
+                            </p>
+
+                            <div class="service-description mt-4">
+
+                                {{ service.description|safe }}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- SIDEBAR -->
+
+                <div class="col-12 col-lg-4">
+
+                    <div class="main-sidebar">
+
+                        <!-- SERVICES -->
+
+                        <div class="single-sidebar-widget">
+
+                            <div class="wid-title">
+
+                                <h3>
+                                    Our Services
+                                </h3>
+
+                            </div>
+
+                            <div class="widget-categories">
+
+                                <ul>
+
+                                    {% for item in services %}
+
+                                    <li>
+
+                                        <i class="fas fa-chevron-circle-right me-3"></i>
+
+                                        <a href="{% url 'service_details' item.slug %}">
+
+                                            {{ item.title }}
+
+                                        </a>
+
+                                    </li>
+
+                                    {% endfor %}
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <!-- CONTACT -->
+
+                        <div class="single-sidebar-widget bg-cover service-contact-box"
+                             style="background-image:url('{{ service.image.url }}')">
+
+                            <div class="contact-overlay">
+
+                                <div class="contact-text">
+
+                                    <div class="icon">
+
+                                        <i class="fas fa-phone-alt"></i>
+
+                                    </div>
+
+                                    <p>
+                                        Need Help?
+                                    </p>
+
+                                    <h3>
+
+                                        <a href="tel:+998333334010">
+
+                                            +998 33 333 40 10
+
+                                        </a>
+
+                                    </h3>
+
+                                    <p class="mt-3">
+
+                                        Contact us for consultation,
+                                        pricing and project information.
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- CTA -->
+
+                        <div class="single-sidebar-widget mb-0">
+
+                            <div class="download-service-doc">
+
+                                <a href="{% url 'contact' %}"
+                                   class="theme-btn text-center w-100 mb-3">
+
+                                    Get Consultation
+
+                                </a>
+
+                                <a href="{% url 'project' %}"
+                                   class="theme-btn style-2 w-100">
+
+                                    View Projects
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RELATED SERVICES -->
+
+            <div class="related-services mt-5 pt-5">
+
+                <div class="section-title text-center mb-5">
+
+                    <h6>
+                        More Services
+                    </h6>
+
+                    <h2>
+                        Related Services
+                    </h2>
+
+                </div>
+
+                <div class="row g-4">
+
+                    {% for item in services|slice:":3" %}
+
+                    <div class="col-lg-4 col-md-6">
+
+                        <div class="service-items">
+
+                            <div class="icon">
+
+                                <i class="{{ item.icon }}"></i>
+
+                            </div>
+
+                            <div class="content">
+
+                                <h3>
+
+                                    <a href="{% url 'service_details' item.slug %}">
+
+                                        {{ item.title }}
+
+                                    </a>
+
+                                </h3>
+
+                                <p>
+
+                                    {{ item.short_description|truncatewords:12 }}
+
+                                </p>
+
+                                <a href="{% url 'service_details' item.slug %}"
+                                   class="link-btn">
+
+                                    Read More
+
+                                    <i class="fas fa-long-arrow-right"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<style>
+    .service-contact-box{
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    }
+
+    .contact-overlay{
+        background: rgba(20,20,20,.75);
+        padding: 50px 30px;
+    }
+
+    .contact-text{
+        color: #fff;
+    }
+
+    .contact-text h3 a{
+        color: #fff;
+    }
+
+    .contact-text .icon{
+        width:70px;
+        height:70px;
+        line-height:70px;
+        text-align:center;
+        border-radius:50%;
+        background:#a49369;
+        color:#fff;
+        margin-bottom:20px;
+    }
+
+    .service-description img{
+        max-width:100%;
+        height:auto;
+        border-radius:10px;
+        margin:20px 0;
+    }
+
+    .service-description h2,
+    .service-description h3,
+    .service-description h4{
+        margin-top:30px;
+        margin-bottom:15px;
+    }
+
+    .service-description ul{
+        padding-left:20px;
+    }
+
+    .service-description li{
+        margin-bottom:10px;
+    }
+</style>
+    
+{% include 'partais/footer.html' %}
+        </div>
+
+        
+
+        <!--<< All JS Plugins >>-->
+        <script src="{% static 'assets/js/jquery-3.7.1.min.js' %}"></script>
+        <!--<< Viewport Js >>-->
+        <script src="{% static 'assets/js/viewport.jquery.js' %}"></script>
+        <!--<< Bootstrap Js >>-->
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+        <!--<< Nice Select Js >>-->
+        <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+        <!--<< Waypoints Js >>-->
+        <script src="{% static 'assets/js/jquery.waypoints.js' %}"></script>
+        <!--<< Counterup Js >>-->
+        <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+        <!--<< Swiper Slider Js >>-->
+        <script src="{% static 'assets/js/swiper-bundle.min.js' %}"></script>
+        <!--<< MeanMenu Js >>-->
+        <script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+        <!--<< Splitting Js >>-->
+        <script src="{% static 'assets/js/splitting.js' %}"></script>
+        <!--<< Magnific Popup Js >>-->
+        <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+        <!--<< Wow Animation Js >>-->
+        <script src="{% static 'assets/js/wow.min.js' %}"></script>
+        <!--<< Splitting Animation Js >>-->
+        <script src="{% static 'assets/js/splitting-animation.js' %}"></script>
+        <!-- Gsap -->
+        <script src="{% static 'assets/js/gsap/gsap.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollTrigger.min.js' %}"></script>
+        <script src="{% static 'assets/js/gsap/ScrollSmoother.min.js' %}"></script>
+        <!--<< Main.js >>-->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>
